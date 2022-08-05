@@ -13,4 +13,8 @@
     /*grid-gap: 10px;*/
 }
 
+.app__content__wrapper {
+    grid-area: c;
+    background-color: blue;
+}
 
