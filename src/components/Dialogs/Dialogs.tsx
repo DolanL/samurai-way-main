@@ -8,7 +8,7 @@ type MessageItemProps = {
 
 type DialogItemProps = {
     name: string
-    id: string
+    id: number
 }
 
 const DialogItem = (props: DialogItemProps) => {
@@ -26,20 +26,36 @@ const Message = (props: MessageItemProps) => {
 }
 
 const Dialogs = () => {
+
+    let dialogsData = [
+        {id: 1, name: 'Dymych'},
+        {id: 2, name: 'Sveta'},
+        {id: 3, name: 'Victor'},
+        {id: 4, name: 'Sasha'},
+        {id: 5, name: 'Valera'},
+        {id: 6, name: 'Andrey'},
+    ]
+
+    let messageData = [
+        {id: 1, message: 'How is your it-kamasutra'},
+        {id: 2, message: 'Yo'},
+        {id: 3, message: 'Yo'},
+        {id: 4, message: 'Yo'},
+        {id: 5, message: 'Yo'},
+        {id: 6, message: 'Hi Andrey!'},
+    ]
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>Dialogs
-                <DialogItem name={'Dimych'} id={"1"}/>
-                <DialogItem name={'Sveta'} id={"2"}/>
-                <DialogItem name={'Victor'} id={"3"}/>
-                <DialogItem name={'Sasha'} id={"4"}/>
-                <DialogItem name={'Valera'} id={"5"}/>
-                <DialogItem name={'Andrey'} id={"6"}/>
+                {dialogsData.map(dialogItem => {
+                    return <DialogItem key={dialogItem.id} name={dialogItem.name} id={dialogItem.id}/>
+                })}
             </div>
             <div className={s.messages}>Messages
-                <Message message={"How is your it-kamasutra"}/>
-                <Message message={"Yo"}/>
-                <Message message={"Hi"}/>
+                {messageData.map(messageItem => {
+                    return <Message key={messageItem.id} message={messageItem.message}/>
+                })}
             </div>
         </div>
 

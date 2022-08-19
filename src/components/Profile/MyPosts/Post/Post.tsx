@@ -4,6 +4,7 @@ import s from './Post.module.css'
 
 type PostPropsType = {
     message: string;
+    likesCount: number
 }
 
 const Post = (props: PostPropsType) => {
@@ -13,7 +14,9 @@ const Post = (props: PostPropsType) => {
                 src="https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg"
                 alt=""/>
             {props.message}
+            <div>{props.likesCount}</div>
         </div>
+
     );
 };
 
