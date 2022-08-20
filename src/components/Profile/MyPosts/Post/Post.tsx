@@ -1,11 +1,6 @@
 import React from 'react';
 import s from './Post.module.css'
-
-
-type PostPropsType = {
-    message: string;
-    likesCount: number
-}
+import {PostPropsType} from "../../../../index";
 
 const Post = (props: PostPropsType) => {
     return (
