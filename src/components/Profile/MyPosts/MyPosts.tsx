@@ -1,27 +1,49 @@
-import React from 'react';
+import React, {ChangeEvent, createRef} from 'react';
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
-import {PostPropsType} from "../../../index";
 
-type MyPostsPropsType = {
-    postData: Array<PostPropsType>
+type ProfilePageType = {
+    posts: Array<PostType>
+    textPost: string
+    addPost: () => void
+    changeNewPostTextHandler: (text: string) => void
 }
 
-const MyPosts = (props: MyPostsPropsType) => {
+type PostType = {
+    id: number
+    message: string
+    likesCount: number
+}
+
+
+const MyPosts = (props: ProfilePageType) => {
+
+    const newPostElement = createRef<HTMLTextAreaElement>()
+
+    const addPostHandler = () => {
+        if (newPostElement.current) {
+            props.addPost()
+        }
+    }
+
+    const changeNewPostTextHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        let text = e.currentTarget.value;
+        props.changeNewPostTextHandler(text)
+    }
 
     return (
         <div className={s.postsBlock}>
             <h3>My posts</h3>
             <div>
                 <div>
-                    <textarea name="" id=""></textarea>
+                    <textarea onChange={changeNewPostTextHandler} value={props.textPost} ref={newPostElement}></textarea>
                 </div>
                 <div>
-                    <button>add post</button>
+                    <button onClick={addPostHandler}>add post</button>
                 </div>
             </div>
             <div className={s.posts}>
-                {props.postData.map(postItem => {
+                {props.posts.map(postItem => {
                     return <Post key={postItem.id} message={postItem.message} likesCount={postItem.likesCount}/>
                 })}
             </div>

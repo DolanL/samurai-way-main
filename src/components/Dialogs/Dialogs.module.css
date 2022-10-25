@@ -9,13 +9,10 @@
 }
 
 .dialogsItems{
-    padding: 10px;
+    padding-left: 10px;
 }
 
 .dialogsItems .active a{
     color: gold;
 }
 
-.messages {
-    padding: 10px
-}

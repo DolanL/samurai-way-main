@@ -1,10 +1,17 @@
 import React from 'react';
-import s from "../Dialogs.module.css";
-import {MessageItemProps} from "../../../index";
 
-const Message = (props: MessageItemProps) => {
+
+type MessageItemType = {
+    id?: number;
+    message: string;
+}
+
+const Message = (props: MessageItemType) => {
+
     return (
-        <div className={s.message}>{props.message}</div>
+        <div>
+            <div>{props.message}</div>
+        </div>
     )
 }
 
