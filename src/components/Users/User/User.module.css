@@ -1,0 +1,42 @@
+.user {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 30%;
+    margin-bottom: 10px;
+}
+
+.user_content {
+    height: 70px;
+    width: 500px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 250px 250px;
+}
+
+.user_left_content {
+    padding-top: 10px;
+    padding-left: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 50px;
+    width: 250px;
+}
+
+.user_right_content {
+    padding-top: 10px;
+    padding-left: 10px;
+    display: flex;
+    align-items: flex-end;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 50px;
+    width: 230px;
+}

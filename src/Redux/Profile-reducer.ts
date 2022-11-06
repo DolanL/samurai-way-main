@@ -30,9 +30,8 @@ export const ProfileReducer = (state: ProfilePageType = initialState, action: Ac
     switch (action.type) {
         case ADD_POST:
             const newPost = state.textPost
-            state.textPost = "";
             return {
-                ...state,
+                ...state, textPost: "",
                 Posts: [...state.Posts, {
                     id: new Date().getTime(),
                     message: newPost,

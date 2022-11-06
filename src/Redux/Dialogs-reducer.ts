@@ -44,16 +44,15 @@ const initialState: DialogsPageType = {
     messageText: "",
 }
 
-export const DialogsReducer = (state: DialogsPageType = initialState, action: ActionDialogsType) => {
+export const DialogsReducer = (state: DialogsPageType = initialState, action: ActionDialogsType): DialogsPageType => {
     {
         switch (action.type) {
             case CHANGE_MESSAGE_TEXT:
                 return {...state, messageText: action.messageText}
             case ADD_MESSAGE_TEXT:
                 let newMessage = state.messageText
-                state.messageText = ""
                 return {
-                    ...state, Messages: [...state.Messages, {
+                    ...state, messageText: "", Messages: [...state.Messages, {
                         id: new Date().getTime(),
                         message: newMessage
                     }]

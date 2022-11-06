@@ -10,7 +10,7 @@ import {store} from "../../Redux/store";
 
 
 type DialogsPropsType = {
-    dialogsPage: DialogsPageType
+    DialogsPage: DialogsPageType
     changeTextMessageHandler: (newText: string) => void
     addMessageTextHandler: () => void
 }
@@ -29,18 +29,18 @@ const Dialogs = (props: DialogsPropsType) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>Dialogs
-                {props.dialogsPage.Dialogs.map(dialogItem => {
+                {props.DialogsPage.Dialogs.map(dialogItem => {
                     return <DialogItem key={dialogItem.id} name={dialogItem.name} id={dialogItem.id}/>
                 })}
             </div>
             <div>
                 <div className={s.messages}>Messages
-                    {props.dialogsPage.Messages.map(messageItem => {
+                    {props.DialogsPage.Messages.map(messageItem => {
                         return <Message key={messageItem.id} message={messageItem.message}/>
                     })}
                 </div>
                 <div className={s.sender}>
-                    <textarea value={props.dialogsPage.messageText}
+                    <textarea value={props.DialogsPage.messageText}
                               onChange={changeTextMessageHandler}></textarea>
                     <button onClick={addMessageTextHandler}>send the message</button>
                 </div>
